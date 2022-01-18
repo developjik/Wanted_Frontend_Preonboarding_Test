@@ -1,0 +1,46 @@
+.menulist {
+    display: flex;
+    align-items: center;
+}
+
+.menulist ul li {
+    padding: 15px;
+    font-size: 14px;
+}
+
+.community, .ai {
+    position: relative;
+}
+
+.community svg, .ai svg {
+    width: 18px;
+    position: absolute;
+    top: 10px;
+}
+
+@media (min-width: 768px) and (max-width: 990px) {
+    .menulist {
+        margin-left: 1em;
+        height: 50px;
+    }
+    .menulist ul li {
+        color: #333;
+        font-size: 13px;
+        padding: 10px 15px 20px 0;
+    }
+}
+    
+@media (max-width: 768px) {
+    .menulist {
+        height: 50px;
+    }
+    .menulist ul li {
+        text-align: left;
+        color: #333;
+        font-size: 14px;
+        padding: 11px 15px 20px 20px;
+    }
+    .menulist ul li:nth-child(1) {
+       border-bottom: 3px solid #3a87d7;
+    }
+}

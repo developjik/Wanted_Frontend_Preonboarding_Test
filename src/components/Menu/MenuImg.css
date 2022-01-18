@@ -1,0 +1,64 @@
+.menuImg {
+    display: flex;
+    align-items: center;
+}
+
+.menuImg ul li {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.menuImg ul li:nth-child(4)::before{
+    display: block;
+    content: "";
+    width: 1px;
+    height: 10px;
+    background-color: #e1e2e3;
+    margin: auto 10px;
+}
+
+.google {
+    display: flex;
+    position: relative;
+    margin: 0 5px 0 0;
+}
+
+.googleImg {
+    width: 28px;
+    height: 28px;
+    background-image: url('https://static.wanted.co.kr/images/profile_default.png');
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+}
+
+.googleImgSpan {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    z-index: 2;
+}
+.googleImgSpan svg {
+    position: absolute;
+    top: -8px;
+    left: -24px;
+    border-radius: 50%;
+    
+    background-color: rgb(51, 102, 255);
+    
+}
+
+.companyService {
+    display: flex;
+    font-size: 13px;
+    color: #666;
+    line-height: 30px;
+    height: 30px;    
+    border: 1px solid #e1e2e3;
+    border-radius: 15px;
+    font-weight: 400;
+    padding: 0 10px;
+}

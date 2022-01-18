@@ -1,0 +1,36 @@
+.scene {
+    overflow: hidden;
+}
+
+.carousel {
+    display: flex;
+    transform: translateX(0, 0, 0);
+    transition: transform 0.2s; 
+    z-index: 100;
+}
+
+.leftBtn, .rightBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 200px;    
+    width: 30px;
+    height: 60px;
+    background-color: #fff;
+    border-radius: 15px;
+    opacity: 0.5;
+}
+
+.leftBtn {
+    left: 5vw; 
+}
+
+.rightBtn {  
+    right: 5vw; 
+}
+
+button {
+    outline: none;
+    border: none;
+}
