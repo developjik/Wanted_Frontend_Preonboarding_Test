@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react'
+import React, {useEffect, useRef, useState,useCallback} from 'react'
 import { useMediaQuery } from 'react-responsive'
 
 import './CarouselImg.css'
@@ -13,23 +13,21 @@ function CarouselImg({num, index, address, text1, text2}) {
     const carouselImg = useRef()
     const carouselRealImg = useRef()
 
-    const handleResize = () => {
-        console.log(carouselRealImg.current.offsetWidth)
+    const handleResize = useCallback(() => {       
         if(isWidth1200){
             carouselImg.current.style.left = (-(carouselRealImg.current.offsetWidth) + (document.body.clientWidth-carouselRealImg.current.offsetWidth)/2) + "px";
         }
         else {
             carouselImg.current.style.left = -(carouselRealImg.current.offsetWidth * 2 / 3) + 'px';
         }
-    }
+    },[isWidth1200])
 
     useEffect(() => {   
-
         window.addEventListener('resize', handleResize)
         return () => {
             window.removeEventListener('resize', handleResize)
         }
-    }, [])
+    }, [handleResize])
 
     useEffect(() => {
         if(parseInt(index) === parseInt(num)) {
@@ -40,7 +38,7 @@ function CarouselImg({num, index, address, text1, text2}) {
             setState(false)
             carouselRealImg.current.style.filter = "brightness(50%)"
         }
-    }, [index])
+    }, [index, num])
 
     return (
         <div className='carouselImg' ref={carouselImg}>

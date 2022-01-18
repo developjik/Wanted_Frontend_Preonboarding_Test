@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useRef} from 'react'
+import React, {useEffect, useState, useRef, useCallback} from 'react'
 import { useMediaQuery } from 'react-responsive'
 
 import CarouselImg from './CarouselImg'
@@ -27,7 +27,7 @@ function Carousel() {
         }        
     }
 
-    const clickRightBtn = () => {            
+    const clickRightBtn = useCallback(() => {            
         if(parseInt(index) === 9){
             carousel.current.style.transform = `translateX(-${1090 * 0}px)`;
             setIndex(1)
@@ -36,7 +36,7 @@ function Carousel() {
             carousel.current.style.transform = `translateX(-${1090 * index}px)`;
             setIndex(index+1)   
         }                
-    }
+    },[index])
 
     const autoClickLeft = () => {  
         if(isWidth1200) {
@@ -54,7 +54,8 @@ function Carousel() {
         }      
     }
 
-    const autoClick = () => {  
+
+    const autoClick = useCallback(() => {  
         if(isWidth1200) {
             clickRightBtn()
         }
@@ -68,7 +69,7 @@ function Carousel() {
                 setIndex(index+1)     
             }
         }      
-    }
+    },[clickRightBtn, index, isWidth1200])
 
     const dragEventStart = (e) => {        
         let img = document.createElement('img')
@@ -94,7 +95,7 @@ function Carousel() {
         return () => {
             clearInterval(timer)
         }
-    }, [index])
+    }, [index, autoClick])
 
     return (
         <div className='scene'>
