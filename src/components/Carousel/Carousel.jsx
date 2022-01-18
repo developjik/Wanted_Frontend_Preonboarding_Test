@@ -4,7 +4,6 @@ import { useMediaQuery } from 'react-responsive'
 import CarouselImg from './CarouselImg'
 
 import './Carousel.css'
-import { click } from '@testing-library/user-event/dist/click'
 
 function Carousel() {
     const [index, setIndex] = useState(1)
